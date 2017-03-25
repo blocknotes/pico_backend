@@ -178,7 +178,7 @@ a:hover, a:active {
   z-index: 1;
   width: 250px;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   border-right: 1px solid #DCE0E3;
 }
 #sidebar .controls {
@@ -201,14 +201,22 @@ a:hover, a:active {
   float: left; 
   margin-top: 5px;
 }
-#sidebar .controls .new, .commitbutton, .savebutton, .pushpullbutton, .clearcachebutton { 
+#sidebar .controls .new, .commitbutton, .savebutton, .pushpullbutton, .clearcachebutton, .releasebutton { 
   float: right; 
   margin-top: 5px;
+}
+#sidebar .scrollable {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: auto;
 }
 #sidebar .nav0 {
   background: #f4f5f6;
   list-style: none;
-  margin: 37px 0 0 0;
+  margin: 0;
   padding: 0;
 }
 #sidebar .nav {
