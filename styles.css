@@ -170,19 +170,7 @@ a:hover, a:active {
   top: 1px;
 }
 
-#sidebar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  margin-top: 35px;
-  z-index: 1;
-  width: 250px;
-  height: auto;
-  overflow: auto;
-  border-right: 1px solid #DCE0E3;
-}
-#sidebar .controls {
+.controls {
   position: fixed;
   top: 0;
   left: 0;
@@ -198,13 +186,24 @@ a:hover, a:active {
      -moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.07);
           box-shadow: 0px 1px 1px rgba(0,0,0,0.07);
 }
-#sidebar .logout { 
+.controls .logout { 
   float: left; 
   margin-top: 5px;
 }
-#sidebar .controls .new, .commitbutton, .savebutton, .pushpullbutton, .clearcachebutton { 
+.controls .new, .commitbutton, .savebutton, .pushpullbutton, .clearcachebutton { 
   float: right; 
   margin-top: 5px;
+}
+#sidebar {
+  position: absolute;
+  top: 37px;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 250px;
+  height: auto;
+  overflow: auto;
+  border-right: 1px solid #DCE0E3;
 }
 #sidebar .nav0 {
   background: #f4f5f6;
