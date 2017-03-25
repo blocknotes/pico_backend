@@ -175,10 +175,11 @@ a:hover, a:active {
   top: 0;
   left: 0;
   bottom: 0;
+  margin-top: 35px;
   z-index: 1;
   width: 250px;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   border-right: 1px solid #DCE0E3;
 }
 #sidebar .controls {
@@ -204,14 +205,6 @@ a:hover, a:active {
 #sidebar .controls .new, .commitbutton, .savebutton, .pushpullbutton, .clearcachebutton { 
   float: right; 
   margin-top: 5px;
-}
-#sidebar .scrollable {
-  position: absolute;
-  top: 35px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  overflow: auto;
 }
 #sidebar .nav0 {
   background: #f4f5f6;

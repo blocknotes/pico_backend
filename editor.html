@@ -23,23 +23,21 @@
       <a href="#" class="clearcachebutton btn icon-loop2 marg-r5" title="Clear Cache"></a>
       <a href="{{ pico_edit_url }}/logout" class="logout btn icon-switch" title="Logout"></a>
     </div>
-    <div class="scrollable">
-      <ul class="nav0">
-        {% if config.pico_edit_options %}
-        <li><a href="#" data-url="conf" class="post page-options"><span class="icon-equalizer2 marg-r5" aria-hidden="true"></span><i>config options</i></a></li>
-        {% endif %}
-        {% if config.pico_edit_404 %}
-        <li><a href="#" data-url="/404" class="post page-404"><span class="icon-file-empty marg-r5" aria-hidden="true"></span><i>404</i></a></li>
-        {% endif %}
-      </ul>
-      <ul class="nav">
-      {% for page in pages %}
-        <li><a href="#" data-url="{{ page.id }}" class="post"><span class="icon-file-text2 marg-r5" aria-hidden="true"></span>/{{ page.id }}</a>
-        <a href="{{ page.url }}" target="_blank" class="view" title="View"><span class="icon icon-eye" aria-hidden="true"></span></a>
-        <a href="#" data-url="{{ page.id }}" class="delete" title="Delete"><span class="icon icon-bin" aria-hidden="true"></span></a></li>
-      {% endfor %}
-      </ul>
-    </div>
+    <ul class="nav0">
+      {% if config.pico_edit_options %}
+      <li><a href="#" data-url="conf" class="post page-options"><span class="icon-equalizer2 marg-r5" aria-hidden="true"></span><i>config options</i></a></li>
+      {% endif %}
+      {% if config.pico_edit_404 %}
+      <li><a href="#" data-url="/404" class="post page-404"><span class="icon-file-empty marg-r5" aria-hidden="true"></span><i>404</i></a></li>
+      {% endif %}
+    </ul>
+    <ul class="nav">
+    {% for page in pages %}
+      <li><a href="#" data-url="{{ page.id }}" class="post"><span class="icon-file-text2 marg-r5" aria-hidden="true"></span>/{{ page.id }}</a>
+      <a href="{{ page.url }}" target="_blank" class="view" title="View"><span class="icon icon-eye" aria-hidden="true"></span></a>
+      <a href="#" data-url="{{ page.id }}" class="delete" title="Delete"><span class="icon icon-bin" aria-hidden="true"></span></a></li>
+    {% endfor %}
+    </ul>
   </div>
 
   <div id="main">
