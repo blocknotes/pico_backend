@@ -178,7 +178,7 @@ a:hover, a:active {
   margin-top: 35px;
   z-index: 1;
   width: 250px;
-  height: 100%;
+  height: auto;
   overflow: auto;
   border-right: 1px solid #DCE0E3;
 }
