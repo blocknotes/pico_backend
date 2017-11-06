@@ -17,10 +17,11 @@ final class Pico_Edit extends AbstractPicoPlugin {
   private $is_logout = false;
   private $plugin_path = '';
   private $password = '';
+  private $url = 'pico_edit';
 
   public function onPageRendering(Twig_Environment &$twig, array &$twig_vars, &$templateName)
   {
-    $twig_vars['pico_edit_url'] = $this->getPageUrl( 'pico_edit' );
+    $twig_vars['pico_edit_url'] = $this->getPageUrl( $this->url );
     if( $this->is_logout ) {
       session_destroy();
       header( 'Location: '. $twig_vars['pico_edit_url'] );
@@ -106,8 +107,12 @@ final class Pico_Edit extends AbstractPicoPlugin {
     $this->plugin_path = dirname( __FILE__ );
     if( file_exists( $this->plugin_path .'/config.php' ) ) {
       global $backend_password;
+      global $backend_url;
       include_once( $this->plugin_path .'/config.php' );
       $this->password = $backend_password;
+      if (isset($backend_url)) {
+        $this->url = $backend_url;
+      }
     }
     $page_404 = $this->getConfig('content_dir') . '/404.md';
     if( !file_exists( $page_404 ) ) touch( $page_404 );
@@ -118,7 +123,7 @@ final class Pico_Edit extends AbstractPicoPlugin {
 
   public function onRequestUrl( &$url ) {
     // If the request is anything to do with pico_edit, then we start the PHP session
-    if( substr( $url, 0, 9 ) == 'pico_edit' ) {
+    if( substr( $url, 0, strlen($this->url) ) == $this->url ) {
       if(function_exists('session_status')) {
         if (session_status() == PHP_SESSION_NONE) {
           session_start();
@@ -128,16 +133,16 @@ final class Pico_Edit extends AbstractPicoPlugin {
       }
     }
     // Are we looking for /pico_edit?
-    if( $url == 'pico_edit' ) $this->is_admin = true;
-    if( $url == 'pico_edit/new' ) $this->do_new();
-    if( $url == 'pico_edit/open' ) $this->do_open();
-    if( $url == 'pico_edit/save' ) $this->do_save();
-    if( $url == 'pico_edit/delete' ) $this->do_delete();
-    if( $url == 'pico_edit/logout' ) $this->is_logout = true;
-    if( $url == 'pico_edit/commit' ) $this->do_commit();
-    if( $url == 'pico_edit/git' ) $this->do_git();
-    if( $url == 'pico_edit/pushpull' ) $this->do_pushpull();
-    if( $url == 'pico_edit/clearcache' ) $this->do_clearcache();
+    if( $url == $this->url ) $this->is_admin = true;
+    if( $url == $this->url.'/new' ) $this->do_new();
+    if( $url == $this->url.'/open' ) $this->do_open();
+    if( $url == $this->url.'/save' ) $this->do_save();
+    if( $url == $this->url.'/delete' ) $this->do_delete();
+    if( $url == $this->url.'/logout' ) $this->is_logout = true;
+    if( $url == $this->url.'/commit' ) $this->do_commit();
+    if( $url == $this->url.'/git' ) $this->do_git();
+    if( $url == $this->url.'/pushpull' ) $this->do_pushpull();
+    if( $url == $this->url.'/clearcache' ) $this->do_clearcache();
   }
 
   /**
