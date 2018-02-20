@@ -7,7 +7,7 @@ Install
 -------
 
 1. Clone the Github repo into your 'plugins' directory (so you get a 'pico_edit' subdirectory) OR extract the zip into your 'plugins' directory (and rename the new directory to 'pico_edit')
-2. Open the Pico config.php file and insert your sha1 hashed password
+2. Open the Pico config.php file and insert your sha256 hashed password
 3. Visit http://www.yoursite.com/pico_edit and login
 
 If pages editing doesn't work check file/dir permissions of 'content' folder.
