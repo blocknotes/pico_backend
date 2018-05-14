@@ -44,7 +44,7 @@ final class Pico_Edit extends AbstractPicoPlugin {
 
       if( !isset($_SESSION['backend_logged_in'] ) || !$_SESSION['backend_logged_in'] ) {
         if( isset($_POST['password'] ) ) {
-          if( hash('sha256', $_POST['password'] ) == $this->password ) {
+          if( strtoupper( hash('sha256', $_POST['password'])) == $this->password ) {
             $_SESSION['backend_logged_in'] = true;
             $_SESSION['backend_config'] = $twig_vars['config'];
           }
